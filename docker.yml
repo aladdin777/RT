@@ -12,4 +12,4 @@
         - name: Docker_image_create
           shell: docker build -t nginx_prod /root
         - name: Docer_image_start
-          shell: docker run -d -p 80:80 nginx_prod
+          shell: docker run --rm -d -p 80:80 nginx_prod
