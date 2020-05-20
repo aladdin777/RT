@@ -1,0 +1,15 @@
+---
+- hosts: 127.0.0.1
+  user: root
+  tasks:
+        - name: Test_Copy
+          copy:
+                  src: ./Dockerfile
+                  dest: /root
+                  owner: root
+                  group: root
+
+        - name: Docker_image_create
+          shell: docker build -t nginx_prod /root
+        - name: Docer_image_start
+          shell: docker run -d -p 80:80 nginx_prod
